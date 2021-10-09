@@ -1,5 +1,6 @@
 package com.meli.ova_api.service;
 
+import com.meli.ova_api.dto.request.NewUser;
 import com.meli.ova_api.dto.request.UsuarioUpdate;
 import com.meli.ova_api.model.entities.Usuario;
 import com.meli.ova_api.repository.IUsuarioRepository;
@@ -17,8 +18,11 @@ public class UserService implements IUserService {
 
 
     @Override
-    public String createUser(Usuario user) {
-        iUsuarioRepository.save(user);
+    public String createUser(NewUser user) {
+        Usuario usuario = new Usuario();
+        usuario.setEmail(user.getEmail()); usuario.setName(user.getName()); usuario.setNumber(user.getNumber());
+        usuario.setPassword(user.getPassword()); usuario.setSurname(user.getSurname()); usuario.setUsername(user.getUsername());
+        iUsuarioRepository.save(usuario);
         return "Creado satisfactoriamente";
     }
 
