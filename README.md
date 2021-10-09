@@ -2,10 +2,13 @@
 
 # Herramienta de Autor para la creación de OVAS
 ## Indice
-1.[Información General](#Información-General)
-2.[Spring](#Spring)
-3.[MVC](#MVC)
+1. [Información General](#Información-General)
+2. [Spring](#Spring)
+3. [MVC](#MVC)
+3.1 [Aplicación MVC dentro del Proyecto](Aplicación-MVC-dentro-del-Proyecto)
 4. [Base de Datos](#Base-de-Datos)
+5. [GitFlow](#GitFlow) 
+
 ## Información General
 
 La herramienta de autor para la creación de OVAS tiene el objetivo de generar una plataforma práctica que facilite la creación de contenidos didácticos para el aprendizaje de los estudiantes de la Universidad Distrital. Dicho proyecto está desarrollado en Java, concretamente en el Framework Spring (mediante el MVC), usando una Base de Datos SQL y siguiendo la metodología de trabajo GitFlow.
@@ -25,7 +28,7 @@ Modelo Vista Controlador (MVC) es un patrón de arquitectura de software, que di
 - **Controlador:** Los controladores proporcional el flujo entre modelos y vistas. Los controladores son los responsables de procesar las peticiones entrantes desde el navegador web, solicitar datos a los modelos, y pasar esos datos a las vistas para su presentación.
 ![ejemplo mvc](https://i.ytimg.com/vi/z6WppAQ3LUg/maxresdefault.jpg)
 
-### Aplicacion MVC dentro del Proyecto
+### Aplicación MVC dentro del Proyecto
 
 Para la elaboración de este proyecto, se trabaja a partir del MVC con varios ajustes, a continuación se muestra la estructura base de los paquetes (pueden ser cambiados por los investigadores en tránsito)
 
@@ -45,3 +48,25 @@ La base de datos del proyecto está generada mediante JPA, un framework del leng
 Las configuraciones iniciales de la Base de Datos están previamente establecidas, así como el modelo, JPA genera automáticamente las correspondientes entidades ya diseñadas así como los repositorios donde toma los métodos.
 
 Los métodos de los repositorios de JPA ofrecen métodos base para los servicios a desarrollar (más información de estos métodos en el [link](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html)), sin embargo, si se requieren generar querys adicionales, se presenta la siguiente [guía para hacer querys en los repositorios JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods)
+
+## GitFlow
+
+Git Flow son un conjunto de extensiones que nos ahorran bastante trabajo a la hora de ejecutar todos estos comandos, simplificando la gestión de las ramas de nuestro repositorio.
+
+**Funcionamiento:**
+GitFlow maneja el flujo de trabajo estándar de Git mediante una serie de ramas para mayor control entre los desarrolladores, dichas ramas se presentan a continuación:
+
+![gitflow](https://cleventy.com/wp-content/uploads/2020/03/git-model-1.png)
+
+A continuación, se presenta las diferentes ramas:
+
+| Rama | Descripción |
+| ------ | ------ |
+| Master | La rama principal de proyecto, es la que se manda a producción y se aplica merge con la rama de develop una vez se ha terminado una versión. |
+| Develop | Rama donde esta el codigo de la versión planificada del proyecto. |
+| Feautures | Las ramas features son las diferentes funcionalidades que cada desarrollador van desarrollando, los investigadores deben crear una nueva rama con la funcionalidad a realizar, a estas ramas se les aplicas merge una vez se termina una funcionalidad con la rama develop. |
+
+```sh
+NOTA: Existen más ramas para uso dentro del proyecto, sin embargo, no se ve necesario el uso de las demás debido a la complejidad del proyecto 
+```
+*Para mas información sobre GitFlow, consultar el siguiente [link](https://cleventy.com/wp-content/uploads/2020/03/git-model-1.png)*
