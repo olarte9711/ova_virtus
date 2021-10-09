@@ -1,5 +1,6 @@
 package com.meli.ova_api.controller;
 
+import com.meli.ova_api.dto.request.NewUser;
 import com.meli.ova_api.dto.request.UsuarioUpdate;
 import com.meli.ova_api.model.entities.Usuario;
 import com.meli.ova_api.service.IUserService;
@@ -18,7 +19,7 @@ public class UserController {
     private IUserService iUserService;
 
     @PostMapping("/create")
-    public ResponseEntity<String> createUser(@RequestBody Usuario user) {
+    public ResponseEntity<String> createUser(@RequestBody NewUser user) {
         return new ResponseEntity<>(iUserService.createUser(user), HttpStatus.CREATED);
     }
     @PostMapping("/update/{userId}")

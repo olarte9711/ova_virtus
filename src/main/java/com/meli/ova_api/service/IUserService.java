@@ -1,12 +1,13 @@
 package com.meli.ova_api.service;
 
+import com.meli.ova_api.dto.request.NewUser;
 import com.meli.ova_api.dto.request.UsuarioUpdate;
 import com.meli.ova_api.model.entities.Usuario;
 
 import java.util.Optional;
 
 public interface IUserService {
-    String createUser(Usuario user);
+    String createUser(NewUser user);
 
     Optional<Usuario> getUserById(Long userId);
 
