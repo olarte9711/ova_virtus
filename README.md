@@ -5,9 +5,11 @@
 1. [Información General](#Información-General)
 2. [Spring](#Spring)
 3. [MVC](#MVC)
-3.1 [Aplicación MVC dentro del Proyecto](Aplicación-MVC-dentro-del-Proyecto)
 4. [Base de Datos](#Base-de-Datos)
 5. [GitFlow](#GitFlow) 
+6. [Clonar el repositorio](#Clonar-el-repositorio)
+7. [Consejos adicionales](#Consejos-adicionales)
+8. [Documentación auxiliar](#Documentación-auxiliar)
 
 ## Información General
 
@@ -66,7 +68,41 @@ A continuación, se presenta las diferentes ramas:
 | Develop | Rama donde esta el codigo de la versión planificada del proyecto. |
 | Feautures | Las ramas features son las diferentes funcionalidades que cada desarrollador van desarrollando, los investigadores deben crear una nueva rama con la funcionalidad a realizar, a estas ramas se les aplicas merge una vez se termina una funcionalidad con la rama develop. |
 
+
+*NOTA: Existen más ramas para uso dentro del proyecto, sin embargo, no se ve necesario el uso de las demás debido a la complejidad del proyecto. Para mas información sobre GitFlow, consultar el siguiente [link](https://cleventy.com/wp-content/uploads/2020/03/git-model-1.png)*
+
+**Pull Request:**
+Un Pull Request (PR) es la solicitud de mergear (unir) los cambios entre 2 ramas, generalmente entre los cambios de un investigador (su rama feature) con la rama de desarrollo (develop). Siguiendo el uso de GitFlow es conveniente generar un nuevo PR desde Git, para ello, se accede a la función dentro de la interfaz de Github, se solicita la rama a la que se desea mergear y se realiza el PR. Otro investigador debe aprobar el PR si no ve inconvenientes dentro del proyecto.
+
+*NOTA: Si bien al generar un PR, el mismo investigador puede "autoaprobarse", lo mejor es lo realice otro investigador para que revise el código y evitar algún conflicto*
+
+## Clonar el repositorio
+
+Para evitar inconvenientes con los investigadores salientes, se debe clonar este repo de forma local, posteriormente algún investigador entrante crea un nuevo repositorio remoto, añadiendo el repositorio clonado como un nuevo commit
+
+**Comandos para clonar el repositorio**:
 ```sh
-NOTA: Existen más ramas para uso dentro del proyecto, sin embargo, no se ve necesario el uso de las demás debido a la complejidad del proyecto 
+git clone -b develop https://github.com/olarte9711/ova_virtus.git
 ```
-*Para mas información sobre GitFlow, consultar el siguiente [link](https://cleventy.com/wp-content/uploads/2020/03/git-model-1.png)*
+
+**Comandos para iniciar un nuevo repositorio (con el repositorio local creado en Github)**:
+```sh
+git checkout develop
+git add .
+git commit -m "Mensaje del commit"
+git push origin develop
+```
+
+*NOTA: No olvide crear la rama develop dentro del repositorio local y remoto*
+
+## Consejos adicionales
+- Manejar correctamente Git, desarollando correctamente los commit con descripciones claras que indiquen los cambios realizados
+- Es conveniente que al finalizar el proyecto, se borren todas las ramas secundarias (feature, hotfixes)
+- Actualizar este README, borrando las partes incoherentes y añadiendo la documentación que consideren pertinente (pueden usar cualquier [editor de md online](https://dillinger.io/))
+- Recuerde actualizar los cambios con base a develop, TODA NUEVA FUNCIONALIDAD DEBE DE ESTAR EN DEVELOP, para ello usando el comando git pull origin develop y luego uniendo esa rama con su rama feature en forma local.
+- Trabajar todo (commits, servicios, controladores, nombres de variables) en español para mayor facilidad
+
+## Documentación auxiliar
+- [Git Documentation](https://git-scm.com/doc)
+- [Spring Documentation](https://docs.spring.io/spring-framework/docs/current/reference/html/)
+- [Spring JPA Documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference)
