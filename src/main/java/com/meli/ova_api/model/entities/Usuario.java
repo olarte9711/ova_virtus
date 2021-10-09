@@ -13,16 +13,21 @@ import java.util.Set;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario", length = 8)
-    private Integer idUsuario;
+    @Column(name = "id", length = 8)
+    private Long id;
 
     @Column(length = 25)
-    private String nombre;
+    private String name;
+
+    private String surname;
+    private String username;
 
     @Column(length = 25)
-    private String contraseña;
+    private String password;
 
-    private String correo;
+    private String email;
+
+    private Long number;
 
     // -- Relaciones --
     @ManyToMany
